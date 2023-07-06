@@ -1,6 +1,6 @@
 <?php
 
-namespace Guave\ContaoSkeletonBundle\DependencyInjection;
+namespace Guave\TeamBundle\DependencyInjection;
 
 use Exception;
 use Symfony\Component\Config\FileLocator;
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class GuaveContaoSkeletonExtension extends Extension
+class GuaveTeamExtension extends Extension
 {
     /**
      * @throws Exception
@@ -17,7 +17,7 @@ class GuaveContaoSkeletonExtension extends Extension
     {
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__.'/../../config')
+            new FileLocator(__DIR__ . '/../../config')
         );
         $loader->load('services.yaml');
     }

@@ -1,6 +1,6 @@
 {
-	"name": "guave/contaoskeleton-bundle",
-	"description": "Skeleton for custom Contao 4 bundles",
+	"name": "guave/team-bundle",
+	"description": "Team Content Element for Contao 4.13+",
 	"type": "contao-bundle",
 	"license": "ISC",
 	"authors": [
@@ -12,7 +12,9 @@
 	],
 	"require": {
 		"php": "^7.4 || ^8.0",
-		"contao/core-bundle": "^4.13"
+		"contao/core-bundle": "^4.13",
+		"menatwork/contao-multicolumnwizard-bundle": "~3.6",
+		"terminal42/dc_multilingual": "^4.4"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-latest"
@@ -23,7 +25,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Guave\\ContaoSkeletonBundle\\": "src/"
+			"Guave\\TeamBundle\\": "src/"
 		},
 		"classmap": [
 			"contao/"
@@ -43,10 +45,10 @@
 		}
 	},
 	"extra": {
-		"contao-manager-plugin": "Guave\\ContaoSkeletonBundle\\ContaoManager\\Plugin"
+		"contao-manager-plugin": "Guave\\TeamBundle\\ContaoManager\\Plugin"
 	},
 	"support": {
-		"issues": "https://github.com/guavestudios/contaoskeleton-bundle/issues",
-		"source": "https://github.com/guavestudios/contaoskeleton-bundle"
+		"issues": "https://github.com/guavestudios/TeamBundle/issues",
+		"source": "https://github.com/guavestudios/TeamBundle"
 	}
 }

@@ -1,6 +1,6 @@
-# Contao Skeleton Bundle
+# Team Bundle
 
-This contao module is a template for building our own.
+This Contao bundle adds a content element to display teams and members
 
 ## Requirements
 
@@ -9,16 +9,11 @@ This contao module is a template for building our own.
 
 ## Install
 
-!!! example installation !!!
-
 ```BASH
-$ composer require guave/contaoskeleton-bundle
+$ composer require guave/team-bundle
 ```
 
 ## Usage
 
-Add some small sample text of how it's meant to be activated and used, e.g. in `contao/config/config.php`
-
-```PHP
-$GLOBALS['TL_SKELETON'] = true;
-```
+- Create new teams and members in the backend under "Team"
+- Use content elements or frontend modules to create listings and detail pages of the teams

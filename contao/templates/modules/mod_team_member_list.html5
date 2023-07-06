@@ -1,0 +1,11 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+<?php if (empty($this->teamMembers)): ?>
+    <p class="empty">No Team Members</p>
+<?php else: ?>
+    <div class="team-members">
+        <?= implode('', $this->teamMembers) ?>
+    </div>
+<?php endif; ?>
+<?php $this->endblock(); ?>

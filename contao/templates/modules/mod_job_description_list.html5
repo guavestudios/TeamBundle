@@ -1,0 +1,11 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+<?php if (empty($this->jobs)): ?>
+    <p class="empty">No Job Descriptions</p>
+<?php else: ?>
+    <div class="jobs">
+        <?= implode('', $this->jobs) ?>
+    </div>
+<?php endif; ?>
+<?php $this->endblock(); ?>

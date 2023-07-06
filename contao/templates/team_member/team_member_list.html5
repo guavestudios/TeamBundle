@@ -1,0 +1,19 @@
+<div class="team-element__member glide__slide <?= $this->id ?>">
+    <div class="team-element__image-container">
+        <figure class="team-element__image">
+            <?php foreach ($this->pictures as $id => $picture) : ?>
+                <img src="<?= $picture['path'] ?>" class="image-<?= ($id === 0) ? 'primary' : 'secondary' ?>" alt="<?= $this->name ?>">
+            <?php endforeach; ?>
+        </figure>
+    </div>
+
+    <div class="team-element__description">
+        <span class="team-name"><?= $this->name ?></span>
+        <?php if ($this->jobTitle) : ?>
+            <span class="team-title"><?= $this->jobTitle ?></span>
+        <?php endif; ?>
+        <?php if ($this->text) : ?>
+            <div class="team-quote"><?= $this->text ?></div>
+        <?php endif; ?>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="team-element{% if moduleSpacing %} margin-spacing--{{ moduleSpacing }}{% endif %}">
+    <div class="team-element__wrapper glide insicht insicht--fade-up">
+        <div class="glide__track">
+            <div class="team-element__list glide__slides">
+                {% for key, member in teamMembers %}
+                    <div class="team-element__member glide__slide {{ key }}">
+                        <div class="team-element__image-container">
+                            <figure class="team-element__image">
+                                {% for id, picture in member.pictures %}
+                                    <img src="{{ picture.path }}"
+                                         class="image-{% if id == 0 %}primary{% else %}secondary{% endif %}"
+                                         alt="{% if id == 0 %}primary{% else %}secondary{% endif %}">
+                                {% endfor %}
+                            </figure>
+                        </div>
+
+                        <div class="team-element__description">
+                            <span class="team-name">{{ member.name }}</span>
+                            {% if member.jobTitle %}
+                                <span class="team-title">{{ member.jobTitle }}</span>
+                            {% endif %}
+                            {% if member.text %}
+                                <div class="team-quote">{{ member.text|raw }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="glide__arrows">
+                <button class="glide__arrow glide__arrow--right">&rightarrow;</button>
+            </div>
+        </div>
+    </div>
+</div>

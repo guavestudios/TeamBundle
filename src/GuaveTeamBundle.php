@@ -1,10 +1,10 @@
 <?php
 
-namespace Guave\ContaoSkeletonBundle;
+namespace Guave\TeamBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class GuaveContaoSkeletonBundle extends Bundle
+class GuaveTeamBundle extends Bundle
 {
     public function getPath(): string
     {

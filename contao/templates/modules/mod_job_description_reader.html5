@@ -1,0 +1,9 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+<?php if (empty($this->job)) : ?>
+    <?php Controller::redirect('/', 301); ?>
+<?php else: ?>
+    <?= $this->job ?>
+<?php endif; ?>
+<?php $this->endblock(); ?>

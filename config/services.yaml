@@ -2,6 +2,6 @@ services:
   _defaults:
     autoconfigure: true
 
-  Guave\ContaoSkeletonBundle\Controller\:
+  Guave\TeamBundle\Controller\:
     resource: ../src/Controller
     public: true

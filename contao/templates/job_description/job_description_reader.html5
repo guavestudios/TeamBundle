@@ -1,0 +1,17 @@
+<h2><?= $this->title ?></h2>
+<h3><i><?= $this->alias ?></i></h3>
+<p><?= $this->minPercent ?> - <?= $this->maxPercent ?>%</p>
+<p><?= $this->startDate ?></p>
+<p><?= $this->workType ?></p>
+<p><?= $this->workLocation ?></p>
+<p><?= $this->shortDescription ?></p>
+<p><a href="<?= $this->externalLink ?>">External Link</a></p>
+<?php foreach ($this->downloads as $download) : ?>
+    <p><a href="<?= $download['path'] ?>"><?= $download['name'] ?></a></p>
+<?php endforeach; ?>
+<?php foreach ($this->pictures as $picture): ?>
+    <img src="<?= $picture['path'] ?>" alt="<?= $this->title ?>" />
+<?php endforeach; ?>
+
+<?php global $objPage ?>
+<a href="{{env::path}}<?= $objPage->parentAlias ?>">Back</a>
