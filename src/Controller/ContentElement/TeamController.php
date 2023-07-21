@@ -30,7 +30,7 @@ class TeamController extends AbstractContentElementController
             return $template->getResponse();
         }
 
-        $teamMembers = TeamMemberModel::findById(unserialize($model->teamMembers), ['return' => 'Collection']);
+        $teamMembers = TeamMemberModel::findBy('id IN ('.implode(unserialize($model->teamMembers)).')', ['return' => 'Collection']);
         if ($model->teamMembers === '') {
             $teamMembers = TeamMemberModel::findAll(['return' => 'Collection']);
         }
@@ -50,6 +50,7 @@ class TeamController extends AbstractContentElementController
             $members[] = $member;
         }
         $template->teamMembers = $members;
+        $template->teamTitle = $model->teamTitle;
 
         return $template->getResponse();
     }
