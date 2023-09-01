@@ -30,7 +30,7 @@ class TeamController extends AbstractContentElementController
             return $template->getResponse();
         }
 
-        $teamMembers = TeamMemberModel::findBy('id IN ('.implode(unserialize($model->teamMembers)).')', ['return' => 'Collection']);
+        $teamMembers = TeamMemberModel::findMultipleByIds(unserialize($model->teamMembers), ['return' => 'Collection']);
         if ($model->teamMembers === '') {
             $teamMembers = TeamMemberModel::findAll(['return' => 'Collection']);
         }
