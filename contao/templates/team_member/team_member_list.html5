@@ -2,7 +2,8 @@
     <div class="team-element__image-container">
         <figure class="team-element__image">
             <?php foreach ($this->pictures as $id => $picture) : ?>
-                <img src="<?= $picture['path'] ?>" class="image-<?= ($id === 0) ? 'primary' : 'secondary' ?>" alt="<?= $this->name ?>">
+                <img src="<?= $picture['path'] ?>" class="image-<?= ($id === 0) ? 'primary' : 'secondary' ?>"
+                     alt="<?= $this->name ?>">
             <?php endforeach; ?>
         </figure>
     </div>

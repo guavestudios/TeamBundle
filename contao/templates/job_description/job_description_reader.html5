@@ -10,7 +10,7 @@
     <p><a href="<?= $download['path'] ?>"><?= $download['name'] ?></a></p>
 <?php endforeach; ?>
 <?php foreach ($this->pictures as $picture): ?>
-    <img src="<?= $picture['path'] ?>" alt="<?= $this->title ?>" />
+    <img src="<?= $picture['path'] ?>" alt="<?= $this->title ?>"/>
 <?php endforeach; ?>
 
 <?php global $objPage ?>
