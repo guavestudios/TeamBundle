@@ -6,10 +6,11 @@ use Contao\DataContainer;
 use Contao\Image;
 use Contao\StringUtil;
 use Contao\System;
+use Terminal42\DcMultilingualBundle\Driver as Multilingual;
 
 $GLOBALS['TL_DCA'][tl_job_description::class] = [
     'config' => [
-        'dataContainer' => 'Multilingual',
+        'dataContainer' => Multilingual::class,
         'switchToEdit' => true,
         'enableVersioning' => true,
         'markAsCopy' => 'title',
@@ -191,7 +192,7 @@ $GLOBALS['TL_DCA'][tl_job_description::class] = [
                 'filesOnly' => true,
                 'fieldType' => 'checkbox',
                 'multiple' => true,
-                'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'],
+                'extensions' => '%contao.image.valid_extensions%',
                 'tl_class' => 'w50 clr'
             ],
             'sql' => ['type' => 'blob', 'default' => '', 'notnull' => true],

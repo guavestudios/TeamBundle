@@ -6,22 +6,18 @@ use Contao\BackendTemplate;
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\FilesModel;
 use Contao\System;
-use Contao\Template;
 use Guave\TeamBundle\Model\DepartmentModel;
 use Guave\TeamBundle\Model\TeamMemberModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @ContentElement("team", category="team", template="content_element/team")
- */
 #[AsContentElement('team', category: 'team', template: 'content_element/team')]
 class TeamController extends AbstractContentElementController
 {
-    protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
+    protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         $scope = System::getContainer()->get('contao.routing.scope_matcher');
         if ($scope && $scope->isBackendRequest($request)) {

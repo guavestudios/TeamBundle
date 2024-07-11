@@ -6,10 +6,11 @@ use Contao\DataContainer;
 use Contao\Image;
 use Contao\StringUtil;
 use Contao\System;
+use Terminal42\DcMultilingualBundle\Driver as Multilingual;
 
 $GLOBALS['TL_DCA'][tl_department::class] = [
     'config' => [
-        'dataContainer' => 'Multilingual',
+        'dataContainer' => Multilingual::class,
         'switchToEdit' => true,
         'enableVersioning' => true,
         'markAsCopy' => 'title',
