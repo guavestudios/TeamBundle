@@ -6,9 +6,6 @@ use Contao\Model\Collection;
 use Terminal42\DcMultilingualBundle\Model\Multilingual;
 
 /**
- * Class JobDescriptionModel
- * @package Guave\TeamBundle\Model
- *
  * @property int $id
  * @property int $pid
  * @property int $langPid

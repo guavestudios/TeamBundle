@@ -164,7 +164,7 @@ $GLOBALS['TL_DCA'][tl_team_member::class] = [
                 'filesOnly' => true,
                 'fieldType' => 'checkbox',
                 'multiple' => true,
-                'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'],
+                'extensions' => '%contao.image.valid_extensions%',
                 'tl_class' => 'w50 clr',
             ],
             'sql' => ['type' => 'blob', 'notnull' => false],

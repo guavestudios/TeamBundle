@@ -10,9 +10,6 @@ use Guave\TeamBundle\GuaveTeamBundle;
 
 class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getBundles(ParserInterface $parser): array
     {
         return [

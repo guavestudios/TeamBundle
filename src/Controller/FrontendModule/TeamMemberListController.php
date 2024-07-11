@@ -3,25 +3,23 @@
 namespace Guave\TeamBundle\Controller\FrontendModule;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\CoreBundle\Exception\PageNotFoundException;
-use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\Environment;
 use Contao\ModuleModel;
-use Contao\Template;
 use Guave\TeamBundle\Model\TeamMemberModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @FrontendModule(category="team")
- */
+#[AsFrontendModule(category: 'team')]
 class TeamMemberListController extends AbstractFrontendModuleController
 {
     use FrontendModuleTrait, JobModuleTrait;
 
     private string $subTemplate = 'team_member_list';
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
+    protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
         $teamMembers = TeamMemberModel::findByPublished(1);
 
