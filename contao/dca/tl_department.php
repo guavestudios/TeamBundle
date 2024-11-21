@@ -6,11 +6,11 @@ use Contao\DataContainer;
 use Contao\Image;
 use Contao\StringUtil;
 use Contao\System;
+use Terminal42\DcMultilingualBundle\Driver as DC_Multilingual;
 
 $GLOBALS['TL_DCA'][tl_department::class] = [
     'config' => [
-        'dataContainer' => 'Multilingual',
-        'switchToEdit' => true,
+        'dataContainer' => DC_Multilingual::class,
         'enableVersioning' => true,
         'markAsCopy' => 'title',
         'languages' => System::getContainer()->get('contao.intl.locales')->getEnabledLocaleIds(),
@@ -20,24 +20,25 @@ $GLOBALS['TL_DCA'][tl_department::class] = [
         'sql' => [
             'keys' => [
                 'id' => 'primary',
-                'pid,langPid,language,sorting,published' => 'index',
+                'alias' => 'index',
+                'pid,sorting,published' => 'index',
+                'langPid,language' => 'index',
             ],
         ],
     ],
     'list' => [
         'sorting' => [
-            'mode' => DataContainer::MODE_UNSORTED,
-            'fields' => ['title'],
-            'flag' => DataContainer::SORT_ASC,
-            'panelLayout' => 'filter;sort,search,limit',
+            'mode' => DataContainer::MODE_SORTABLE,
+            'fields' => ['title', 'published'],
+            'flag' => DataContainer::SORT_INITIAL_LETTERS_ASC,
+            'panelLayout' => 'filter;search,sort,limit',
         ],
         'label' => [
-            'fields' => ['title'],
-            'format' => '%s',
+            'fields' => ['title', 'published'],
+            'showColumns' => true,
         ],
         'global_operations' => [
             'all' => [
-                'label' => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href' => 'act=select',
                 'class' => 'header_edit_all',
                 'attributes' => 'onclick="Backend.getScrollOffset()" accesskey="e"'
@@ -47,17 +48,10 @@ $GLOBALS['TL_DCA'][tl_department::class] = [
             'edit' => [
                 'href' => 'act=edit',
                 'icon' => 'edit.svg',
-                'attributes' => 'onclick="Backend.getScrollOffset()"',
             ],
             'copy' => [
-                'href' => 'act=paste&amp;mode=copy',
+                'href' => 'act=copy',
                 'icon' => 'copy.svg',
-                'attributes' => 'onclick="Backend.getScrollOffset()"'
-            ],
-            'cut' => [
-                'href' => 'act=paste&amp;mode=cut',
-                'icon' => 'cut.svg',
-                'attributes' => 'onclick="Backend.getScrollOffset()"'
             ],
             'delete' => [
                 'href' => 'act=delete',
@@ -100,6 +94,8 @@ $GLOBALS['TL_DCA'][tl_department::class] = [
         'title' => [
             'exclude' => true,
             'search' => true,
+            'sorting' => true,
+            'flag' => DataContainer::SORT_INITIAL_LETTERS_ASC,
             'inputType' => 'text',
             'eval' => ['maxlength' => 255, 'mandatory' => true, 'tl_class' => 'w50 clr', 'translatableFor' => '*'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => ''],
@@ -122,6 +118,8 @@ $GLOBALS['TL_DCA'][tl_department::class] = [
             'exclude' => true,
             'toggle' => true,
             'filter' => true,
+            'sorting' => true,
+            'flag' => DataContainer::SORT_DESC,
             'inputType' => 'checkbox',
             'sql' => ['type' => 'string', 'length' => 1, 'default' => ''],
         ],
