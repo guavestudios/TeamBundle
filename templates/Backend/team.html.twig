@@ -1,0 +1,14 @@
+{% extends "@Contao/be_main" %}
+
+{% block main_content %}
+<h1>{{ teamTitle }}</h1>
+<div class="tl_listing_container">
+    {% if teamMembers %}
+    <div class="tl_gray">
+        {% for member in teamMembers %}
+        {{ member.name }} (ID: {{ member.id }})<br>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

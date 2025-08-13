@@ -3,6 +3,6 @@ services:
     autoconfigure: true
     autowire: true
 
-  Guave\TeamBundle\Controller\:
-    resource: ../src/Controller
-    public: true
+  Guave\TeamBundle\:
+    resource: ../src
+    exclude: ../src/{ContaoManager,DependencyInjection}
