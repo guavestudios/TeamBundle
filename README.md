@@ -4,8 +4,8 @@ This Contao bundle adds a content element to display teams and members
 
 ## Requirements
 
-- Contao 4.13+
-- PHP 7.4 or 8.0+
+- Contao 5.0+
+- PHP 8.1+
 
 ## Install
 
